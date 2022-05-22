@@ -1,0 +1,38 @@
+---
+- name: Ensure old versions of Docker are not installed.
+  apt:
+    name: "{{ docker_old_versions}}"
+    state: absent
+
+- name: Update repository cache "apt-get update"
+  apt:
+    update_cache: yes
+
+- name: Install prerequisites
+  apt:
+    name: "{{ docker_prereq_packages }}"
+    state: latest
+
+- name: Add Docker apt key
+  apt_key:
+    keyserver: "{{ docker_gpg_key }}"
+    id: "{{ docker_keyid }}"
+
+- name: Add Docker repository.
+  apt_repository:
+    repo: "{{ docker_repository }}"
+    state: present
+    update_cache: true
+
+- name: Install Docker Engine
+  package:
+    name: "{{ docker_engine_packages }}"
+    state: present
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+- name: Setup workstation
+  connection: local
+  hosts: 127.0.0.1
+  become: true
+
+  tasks:
+    - include_role:
+        name: docker
+    - include_role:
+        name: azcli
+    - include_role:
+        name: awscli
+    
+
+

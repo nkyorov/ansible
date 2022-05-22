@@ -1,0 +1,25 @@
+---
+- name: Update repository cache "apt-get update"
+  apt:
+    update_cache: yes
+
+- name: Install prerequisite packages
+  apt: 
+    name: "{{ azcli_prereq_packages }}"
+    state: latest
+
+- name: Import Microsoft signing key
+  apt_key:
+    keyserver: "{{ azcli_gpg_key }}"
+    id: "{{ azcli_keyid }}"
+
+- name: Create the APT repository (Debian)
+  apt_repository:
+    repo: "{{ azcli_repository }}"
+    filename: "{{ azcli_filename }}"
+    state: present
+
+- name: Install AZ CLI
+  apt:
+    name: "{{ azcli_filename }}"
+    update_cache: true

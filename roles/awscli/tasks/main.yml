@@ -1,0 +1,16 @@
+---
+- name: Download AWS CLI
+  get_url:
+    url: "{{ awscli_zip_url }}"
+    dest: "{{ awscli_download_path }}"
+    mode: "0640"
+
+- name: Unzip AWS CLI
+  unarchive:
+    src: "{{ awscli_download_path }}"
+    dest: "{{ awscli_unzipped_path }}"
+
+- name: Install AWS CLI
+  command: ./aws/install -i {{ awscli_install_dir }} -b {{ awscli_bin_dir }}
+  args:
+    chdir: "{{ awscli_unzipped_path }}"
