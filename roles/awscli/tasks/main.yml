@@ -3,7 +3,12 @@
   get_url:
     url: "{{ awscli_zip_url }}"
     dest: "{{ awscli_download_path }}"
-    mode: "0640"
+
+- name: Create a directory if it does not exist
+  file:
+    path: "{{ awscli_unzipped_path }}"
+    state: directory
+    mode: "0755"
 
 - name: Unzip AWS CLI
   unarchive:
