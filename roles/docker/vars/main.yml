@@ -12,6 +12,8 @@ docker_old_versions: ["docker","docker-engine","docker.io","containerd","runc"]
 docker_prereq_packages: ["ca-certificates", "curl", "gnupg", "lsb-release"]
 docker_engine_packages: ["docker-ce", "docker-ce-cli", "containerd.io", "docker-compose-plugin"]
 
+docker_group: docker
+docker_users: azureuser
 
 
 
