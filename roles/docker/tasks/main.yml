@@ -29,6 +29,12 @@
     name: "{{ docker_engine_packages }}"
     state: present
 
+- name: Add users to Docker group
+  user:
+    name: "{{ item }}"
+    groups: "{{ docker_group }}"
+    append: true
+  with_items: "{{ docker_users }}"
 
 
 
