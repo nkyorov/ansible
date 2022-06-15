@@ -1,0 +1,21 @@
+---
+common_packages:
+  - software-properties-common
+  - wget
+  - apt-transport-https
+  - tmux
+  - unzip
+  - git
+  - jq
+  - xclip
+  - awk
+  - bat
+  # Needs GO
+  #- lazygit
+  - w3m
+  - rclone
+  - gcalcli
+  #- bw
+  #- procs
+  # Needs go
+  #- glow
