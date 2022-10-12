@@ -1,17 +1,4 @@
 ---
-docker_base_url: https://download.docker.com/linux
-
-docker_release_channel: stable
-docker_arch: amd64
-docker_repository: "deb [arch={{ docker_arch }}] {{ docker_base_url }}/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} {{ docker_release_channel }}"
-docker_gpg_key: "{{ docker_base_url }}/{{ ansible_distribution | lower }}/gpg"
-docker_keyid: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
-
-
-docker_old_versions: ["docker","docker-engine","docker.io","containerd","runc"]
-docker_prereq_packages: ["ca-certificates", "curl", "gnupg", "lsb-release"]
-docker_engine_packages: ["docker-ce", "docker-ce-cli", "containerd.io", "docker-compose-plugin"]
-
 docker_group: docker
 docker_users: azureuser
 
